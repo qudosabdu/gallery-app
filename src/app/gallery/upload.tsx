@@ -1,8 +1,16 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { CldUploadButton } from "next-cloudinary";
+import { useRouter } from "next/navigation";
 
 function Upload() {
+  //for page refresh
+  const router = useRouter();
+  interface UplaodImage {
+    event: "success", 
+    info: { public_id: string };
+  }
+
   return (
     <Button asChild className="cursor-pointer">
       <div className="">
@@ -23,10 +31,12 @@ function Upload() {
         <CldUploadButton
           uploadPreset="tjg2hgjg"
           className=""
-          //   onUploadAdded={(results) => {
-          //     let res = results as UplaodImage;
-          //     setImage(res.info.public_id);
-          //   }}
+            onUploadAdded={(results) => {
+              let res = results as UplaodImage;
+              setTimeout(() => {
+                router.refresh();
+              }, 1000);
+            }}
         />
       </div>
     </Button>
