@@ -29,7 +29,7 @@ function Sidebar() {
                 Gallery
               </Button>
             </Link>
-            <Link href="#">
+            <Link href="/album">
               <Button variant="ghost" className="w-full text-lg justify-start">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ function Sidebar() {
                 Picture Album
               </Button>
             </Link>
-            <Link href="/dashboard">
+            <Link href="/favourite">
               <Button variant="ghost" className="w-full text-lg justify-start">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
