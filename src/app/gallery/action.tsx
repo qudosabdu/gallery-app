@@ -2,7 +2,7 @@
 import cloudinary from "cloudinary";
 import { revalidatePath } from "next/cache";
 
-export async function AddTags(publicId:string, tag: boolean[]){
+export async function AddTags(publicId:string, tag: boolean){
     if(tag){
         await cloudinary.v2.uploader.remove_tag("favourite", [publicId]);
     }
