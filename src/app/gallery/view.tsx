@@ -1,10 +1,11 @@
 "use client";
 import { CldImage } from "next-cloudinary";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { AiOutlineHeart, AiFillHeart} from "react-icons/ai";
 import { BiEditAlt } from "react-icons/bi";
 import { AddTags } from "./action";
 import { useState } from "react";
 import Link from "next/link";
+import AlbumDialog from "./albumDialog";
 
 function View({ src, tag }: { src: string; tag: string[] }) {
   const [tags, setTags] = useState(tag.includes("favourite"));
@@ -22,11 +23,21 @@ function View({ src, tag }: { src: string; tag: string[] }) {
         priority
       />
       {/* edit icons */}
-      <Link href={`/edit/?publicId=${src}`} passHref>
-        <div className="absolute top-1 left-1">
+      <div className="absolute top-1 left-1">
+        <Link href={`/edit/?publicId=${src}`} passHref>
           <BiEditAlt className="text-blue-500 text-2xl cursor-pointer hover:text-blue-600" />
-        </div>
-      </Link>
+        </Link>
+      </div>
+
+
+      {/* folder icons */}
+      <div className="absolute bottom-1 left-1">
+        {/* <Link href={`/gallery/?tag=${src}`} passHref>
+        
+        </Link> */}
+        <AlbumDialog src={src}/>
+
+      </div>
 
       {/* heart icons */}
       <div
